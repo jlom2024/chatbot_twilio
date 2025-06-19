@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Clientes</title>
+    <style>body { font-family: sans-serif; margin: 2em; } table, th, td { border: 1px solid #ccc; border-collapse: collapse; } th, td { padding: 8px; text-align: left; } a { color: #007bff; }</style>
+</head>
+<body>
+    <h1>Panel de Administración de Chatbots</h1>
+    <a href="/admin/new"><h2>+ Añadir Nuevo Cliente</h2></a>
+    <hr>
+    <h3>Clientes Activos</h3>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Número Twilio</th>
+            <th>IA Activada</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.name }}</td>
+            <td>{{ client.twilio_number }}</td>
+            <td>{{ 'Sí' if client.ai_enabled else 'No' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
